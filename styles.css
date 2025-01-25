@@ -101,7 +101,7 @@ header p {
 }
 
 .btn.primary:hover {
-    background: #a3011c;
+    background: #270b74;
 }
 
 .btn.secondary {
@@ -110,7 +110,7 @@ header p {
 }
 
 .btn.secondary:hover {
-    background: #5a6268;
+    background:#270b74 ;
 }
 
 .btn.success {
@@ -119,7 +119,7 @@ header p {
 }
 
 .btn.success:hover {
-    background: #a20606;
+    background: #270b74;
 }
 
 /* Queue Section */
