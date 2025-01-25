@@ -1,26 +1,17 @@
-document.addEventListener("DOMContentLoaded", function () {
-    // Add click event listener to login button
-    document.getElementById("loginButton").addEventListener("click", authenticate);
-
-    const googleSignInButton = document.getElementById("googleSignInButton");
-
-    if (googleSignInButton) {
-        googleSignInButton.addEventListener("click", function() {
-            // Redirect to the Google Sign-In page
-            window.location.href = "https://accounts.google.com/signin";
-        }); // Close the googleSignInButton event listener
+document.getElementById("loginButton").addEventListener("click", authenticate);
+function authenticate() {
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+    if (username === "admin" && password === "password") {
+        alert("Login successful!");
+    } else {
+        document.getElementById("error").style.display = "block";
     }
+}
 
-    function authenticate() {
-        const username = document.getElementById("username").value;
-        const password = document.getElementById("password").value;
-
-        if (username === "admin" && password === "password123") {
-            console.log("Login successful");
-            window.location.href = "dashboard.html"; // Redirect to dashboard
-        } else {
-            console.log("Invalid username or password");
-            document.getElementById("error").style.display = "block"; // Show error message
-        }
-    }
-});
+document.getElementById("googleSignInButton").addEventListener("click", googleSignIn);
+function googleSignIn() {
+    const googleAuthUrl = "https://accounts.google.com/signin";
+   
+    window.open(googleAuthUrl, "_blank");
+}
