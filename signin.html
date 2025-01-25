@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <script>
+        window.onload = function() {
+            // Extract the authorization code from the URL query parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const code = urlParams.get('code');
+            
+            if (code) {
+                // Send the code to your server to exchange it for an access token
+                fetch('YOUR_SERVER_URL/exchange_code', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ code: code })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.token) {
+                        // Store the token or user info in localStorage/sessionStorage
+                        localStorage.setItem('auth_token', data.token);
+                        // Redirect to the dashboard page after successful login
+                        window.location.href = 'dashboard.html';
+                    } else {
+                        alert('Authentication failed');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error exchanging code for token:', error);
+                });
+            } else {
+                alert('No code received. Please try signing in again.');
+            }
+        };
+    </script>
+</head>
+<body>
+    <h1>Redirecting...</h1>
+    <p>If you are not redirected automatically, please <a href="dashboard.html">click here</a>.</p>
+</body>
+</html>
