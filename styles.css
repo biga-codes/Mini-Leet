@@ -1,33 +1,42 @@
 /* General Styles */
+
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    color: #eef0de;
+    color: #74d4d4;
     background-color: #000000;
     width: 350px;
     height: 500px;
+    display: flex;
+    flex-direction: column;
 }
 
 .container {
     padding: 20px;
+    box-sizing: border-box;
+    background: linear-gradient(to bottom right, #d0d8ff, #f3e6ff);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 350px;
 }
 
 /* Header */
 header {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
 }
 
 header h1 {
     font-size: 24px;
-    color: #ebeec7;
+    color: #000000;
     margin: 0;
 }
 
 header p {
     font-size: 14px;
-    color: #ebeec7;
+    color: #000000;
     margin-top: 5px;
 }
 
@@ -35,7 +44,7 @@ header p {
 .problem-section h2,
 .queue-section h2 {
     font-size: 18px;
-    color: #ebeec7;
+    color: #000000;
     margin-bottom: 10px;
 }
 
@@ -78,7 +87,7 @@ header p {
 }
 
 .btn.primary {
-    background: #ac0b66;
+    background: #5c7cfa;
     color: #fff;
 }
 
@@ -87,7 +96,7 @@ header p {
 }
 
 .btn.secondary {
-    background: #6c757d;
+    background: #5c7cfa;
     color: #fff;
 }
 
@@ -96,7 +105,7 @@ header p {
 }
 
 .btn.success {
-    background: #de75c0;
+    background: #5c7cfa;
     color: #fff;
 }
 
