@@ -4,6 +4,7 @@ function authenticate() {
     const password = document.getElementById("password").value;
     if (username === "admin" && password === "password") {
         alert("Login successful!");
+        window.location.href = "dashboard.html";
     } else {
         document.getElementById("error").style.display = "block";
     }
