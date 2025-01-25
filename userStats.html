@@ -7,16 +7,18 @@
   <link rel="stylesheet" href="userstyles.css">
 </head>
 <body>
+    <div class="container">
   <h1>LeetCode Stats</h1>
-  <label for="username">Enter LeetCode Username: </label>
+  <label for="username"> <h2>Enter your LeetCode Username:</h2> </label>
   <input type="text" id="username" placeholder="Username">
-  <button id="fetchStats">Fetch Stats</button>
+  <button class="fetchStats" id="fetchStats">Fetch Stats</button>
+  <button class="back" id="back">Back</button>
 
-  <p id="totalSolved">Please enter a username to see the stats.</p>
+  <p id="totalSolved"></p>
   <p id="easySolved"></p>
   <p id="mediumSolved"></p>
   <p id="hardSolved"></p>
-
+    </div>
   <script src="us.js"></script>
 </body>
 </html>
