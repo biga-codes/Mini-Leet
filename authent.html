@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self';">
     <style>
         body {
             margin: 0;
@@ -117,11 +116,11 @@
                 <input type="text" id="username" placeholder="Enter your username" required>
                 <label for="password">Password:</label>
                 <input type="password" id="password" placeholder="Enter your password" required>
-                <button type="button" id="loginButton">Login</button>
+                <button type="button" onclick="authenticate()">Login</button>
                 <p id="error" class="error">Invalid username or password.</p>
             </form>
 
-            <button class="gsi-material-button" id="google-signin-btn">
+            <button class="gsi-material-button" onclick="googleSignIn()">
                 <div class="gsi-material-button-icon">
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" xmlns:xlink="http://www.w3.org/1999/xlink">
                         <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path>
@@ -136,6 +135,21 @@
         </div>
     </div>
 
-    <script src="authent.js"></script>
+    <script>
+        function authenticate() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            if (username === "admin" && password === "password") {
+                window.location.href = "popup.html"; 
+            } else {
+                document.getElementById("error").style.display = "block";
+            }
+        }
+
+        function googleSignIn() {
+            window.location.href = "https://accounts.google.com/signin";
+        }
+    </script>
 </body>
 </html>
