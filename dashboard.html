@@ -111,17 +111,5 @@
     </div>
     <script src="popup.js"></script>
     <script src="userstats.js"></script>
-    <script>
-        // Parse the URL to extract the authorization code
-        const urlParams = new URLSearchParams(window.location.search);
-        const code = urlParams.get('code');  // This is the authorization code from Google
-
-        if (code) {
-            console.log('Authorization code:', code);
-            // You can exchange this code for an access token by calling your backend or directly via JavaScript.
-        } else {
-            console.log('No authorization code found');
-        }
-    </script>
 </body>
 </html>
