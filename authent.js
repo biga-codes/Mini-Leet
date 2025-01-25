@@ -19,7 +19,7 @@ function authenticate() {
 
 // Google Sign-In function that redirects to Google Sign-In page
 function googleSignIn() {
-    const googleAuthUrl = "https://accounts.google.com/o/oauth2/v2/auth?scope=openid%20profile%20email&response_type=token&redirect_uri=http://your-redirect-uri.com&client_id=YOUR_GOOGLE_CLIENT_ID";
+    const googleAuthUrl = "https://accounts.google.com/signin";
     
     // Open Google Sign-In in a new window or tab
     window.open(googleAuthUrl, "_blank");
