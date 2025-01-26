@@ -1,3 +1,7 @@
+document.getElementById("back").addEventListener("click", function () {
+    window.location.href = "dashboard.html";
+});
+
 document.getElementById("fetchStats").addEventListener("click", function() {
     const username = document.getElementById("username").value;
     if (!username) {

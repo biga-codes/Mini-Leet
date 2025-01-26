@@ -71,14 +71,13 @@ randomProblemButton.addEventListener("click", () => {
         // Clear the displayed problem after enqueueing
         problemDisplay.innerHTML = `<div style="color: gray;">No problem is currently displayed.</div>`;
     } else {
-        // If no problem is displayed, show a warning message
+      
         alert("No problem is currently displayed. Please display a problem first.");
     }
 });
 
 
 
-// Event listener for "Next Question" button
 nextQuestionButton.addEventListener("click", () => {
     fetch(chrome.runtime.getURL("problems.json"))
         .then((response) => {
@@ -88,24 +87,24 @@ nextQuestionButton.addEventListener("click", () => {
             return response.json();
         })
         .then((problems) => {
-            // Use a round-robin style for cycling through problems
+           
             chrome.storage.sync.get(["currentProblemIndex"], (data) => {
                 const currentIndex = data.currentProblemIndex || 0;
 
-                // Ensure we have a valid index
+         
                 const nextProblem = problems[currentIndex];
                 if (!nextProblem) {
                     alert("No more problems available.");
                     return;
                 }
 
-                // Display the next problem
+             
                 problemDisplay.innerHTML = `
                     <div id="problem-title">${nextProblem.title}</div>
                     <a href="${nextProblem.url}" target="_blank">Solve on LeetCode</a>
                 `;
 
-                // Update the index (cycle through problems)
+             
                 const newIndex = (currentIndex + 1) % problems.length;
                 chrome.storage.sync.set({ currentProblemIndex: newIndex });
             });
