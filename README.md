@@ -19,11 +19,11 @@ The extension also features Google Sign-In integration, allowing users to log in
 
 ## Features
 
-- *Seamless LeetCode Integration*: Log in directly to your LeetCode profile through Mini-Leet and access your progress effortlessly.  
-- *Personalized Progress Tracking*: Monitor your completed problems, see what's pending, and celebrate your milestones.  
-- *Repetitive Revision*: Flag challenging questions for revision and access them easily with direct links, ensuring continuous improvement.  
-- *Spaced Repetition Review Boards*: Leverage scientifically proven techniques to maximize retention and recall. Mini-Leet schedules flagged problems for review at optimal intervals, keeping your problem-solving skills sharp.  
-- *Robust Data Management*: Powered by MongoDB, your data is securely stored and efficiently managed for optimal performance.  
+- Seamless LeetCode Integration: Log in directly to your LeetCode profile through Mini-Leet and access your progress effortlessly.  
+- Personalized Progress Tracking: Monitor your completed problems, see what's pending, and celebrate your milestones.  
+- Repetitive Revision: Flag challenging questions for revision and access them easily with direct links, ensuring continuous improvement.  
+- Spaced Repetition Review Boards: Leverage scientifically proven techniques to maximize retention and recall. Mini-Leet schedules flagged problems for review at optimal intervals, keeping your problem-solving skills sharp.  
+- Robust Data Management: Powered by MongoDB, your data is securely stored and efficiently managed for optimal performance.  
 
 ## How to run?
 
