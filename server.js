@@ -91,7 +91,7 @@ app.get("/next", (req, res) => {
 // Endpoint to get a random problem from the database
 app.get("/random", async (req, res) => {
     try {
-        const collection = client.db("leetq").collection("leetcodeq");
+        const collection = client.db("leetcodeq").collection("leetq");
         const count = await collection.countDocuments();
         if (count === 0) return res.send({ message: "No problems found." });
 
@@ -108,7 +108,7 @@ app.get("/random", async (req, res) => {
 app.post("/remove", async (req, res) => {
     try {
         const { title } = req.body;
-        const collection = client.db("leetq").collection("leetcodeq");
+        const collection = client.db("leetcodeq").collection("leetq");
         await collection.deleteOne({ title });
         res.send({ message: "Problem removed from the database." });
     } catch (error) {
