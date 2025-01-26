@@ -82,21 +82,17 @@ By revisiting the same problem multiple times, spaced repetition helps reinforce
    cd Mini-Leet
    
 2. Install Dependencies:
-   bash
-   npm install
+   npm install mongodb
+   node server.js
    
-3. Configure Environment Variables:
-   - Create a .env file in the root directory.
+4. Configure Environment Variables:
    - Add your MongoDB connection string:
      
      MONGODB_URI=your_mongodb_connection_string
      
-4. Start the Application:
-   bash
-   npm start
-   
-5. Access Mini-Leet:
-   - Open your browser and navigate to http://localhost:3000 to start using Mini-Leet.
+5. Start the Application:
+  go to chrome for developers and test the application locally to access mini-leet.
+
 
 
 ## Usage
