@@ -53,7 +53,7 @@ Concept Cleared: When the user feels they've mastered a problem, they can mark i
 The LeetCode Revision Chrome Extension is designed to help you practice LeetCode problems regularly and efficiently. The extension pulls random LeetCode problems, manages a revision queue, and helps you clear problems once you've mastered them. The extension uses MongoDB to persist the revision queue and user progress.
 
 ## The Concept Behind Our Idea
-As Third Years Studying for placements, We find ourselves needing a convenient way to be able to track our progress on Leetcode and manage our revision efficiently. Having to further exhaust ourselves on top of already having to solve complex problems, becomes a difficult task when we're on both a time constraint and immense amounts of pressure. This Chrome exensions offers a solution for those placement-oriented students who wish to manage their time and ensure proper learning along with managing their daily tasks. 
+As third years studying for placements, we often find ourselves needing a convenient way to be able to track our progress on Leetcode and manage our revision efficiently. Having to further exhaust ourselves on top of already having to solve complex problems, becomes a difficult task when we're on both a time constraint and immense amounts of pressure. This Chrome exensions offers a solution for those placement-oriented students who wish to manage their time and ensure proper learning along with managing their daily tasks. 
 
 This app seamlessly integrates with a person's LeetCode Account and allows for spaced repitition in learning, thereby cementing the concepts you've learnt into your memory for longer periods of time.
 
