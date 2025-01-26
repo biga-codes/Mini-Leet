@@ -125,8 +125,10 @@ click on thumbnail to watch the video.
 
 [![Watch the video](https://img.youtube.com/vi/xjawPvPf2HQ/0.jpg)](https://youtu.be/xjawPvPf2HQ)
 
-##update:
-our chrome extension is now published and up for revision on the chrome store! 
+## update:
+our chrome extension is now published and up for revision on the chrome store! ![Screenshot 2025-01-26 230244](https://github.com/user-attachments/assets/a2966fb8-d274-4c1f-acb3-1a4e049f63b8)
+
+
 
 ## License
 
