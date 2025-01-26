@@ -28,6 +28,15 @@ The extension also features Google Sign-In integration, allowing users to log in
 - [@GopikaJ](https://github.com/biga-codes)
 - [@JeanRoger](https://github.com/Jean2004-aka)
 
+How It Works:
+Queue Management
+The extension uses MongoDB to manage the queue of LeetCode problems. The queue is persistent, meaning that once a problem is added, it stays in the queue until the user marks it as "Concept Cleared".
+
+Random Problem: Fetches a random LeetCode problem from an external API or a pre-defined list stored in MongoDB.
+Revision Queue: Problems are added to the revision queue and revisited regularly.
+Concept Cleared: When the user feels they've mastered a problem, they can mark it as cleared, which removes it from the queue.
+
+
 
 ## Screenshots
 
@@ -40,6 +49,18 @@ The extension also features Google Sign-In integration, allowing users to log in
 ![Screenshot 2025-01-26 110416](https://github.com/user-attachments/assets/46240847-dbf4-4f66-a844-035a8f5e6047)
 
 The LeetCode Revision Chrome Extension is designed to help you practice LeetCode problems regularly and efficiently. The extension pulls random LeetCode problems, manages a revision queue, and helps you clear problems once you've mastered them. The extension uses MongoDB to persist the revision queue and user progress.
+
+## The Concept Behind Our Idea
+As Third Years Studying for placements, We find ourselves needing a convenient way to be able to track our progress on Leetcode and manage our revision efficiently. Having to further exhaust ourselves on top of already having to solve complex problems, becomes a difficult task when we're on both a time constraint and immense amounts of pressure. This Chrome exensions offers a solution for those placement-oriented students who wish to manage their time and ensure proper learning along with managing their daily tasks. 
+
+This app seamlessly integrates with a person's LeetCode Account and allows for spaced repitition in learning, thereby cementing the concepts you've learnt into your memory for longer periods of time.
+
+Spaced repetition is a learning technique that involves revisiting concepts at increasing intervals to enhance long-term retention. This extension implements the spaced repetition principle by:
+
+Queuing problems for repeated revision: The extension automatically adds problems to a revision queue. Users are prompted to solve the same problems multiple times at regular intervals, ensuring they revisit concepts at optimal intervals.
+Tracking mastery: As users mark a problem as “Concept Cleared,” they remove it from the queue, indicating that they no longer need to revisit the problem as frequently.
+
+By revisiting the same problem multiple times, spaced repetition helps reinforce the problem-solving techniques and concepts learned, leading to better retention.
 
 
 ## Features
