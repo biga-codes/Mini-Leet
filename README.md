@@ -80,7 +80,8 @@ The extension also features Google Sign-In integration, allowing users to log in
 - **styles.css**: Main stylesheet for consistent styling across the app.  
 
 ## Link to video Demonstration
-https://youtu.be/xjawPvPf2HQ
+[![Watch the video](https://img.youtube.com/vi/xjawPvPf2HQ/0.jpg)](https://youtu.be/xjawPvPf2HQ)
+
 
 ## License
 
