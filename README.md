@@ -79,5 +79,3 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 For questions or feedback, please open an issue on GitHub or reach out to the project maintainers.
 
 ---
-
-Master LeetCode with *Mini-Leet* and experience coding like never before. Conquer challenges, strengthen your problem-solving skills, and unlock your potential today!
