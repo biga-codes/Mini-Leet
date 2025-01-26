@@ -14,6 +14,9 @@ The extension also features Google Sign-In integration, allowing users to log in
 - [@JeanRoger](https://github.com/Jean2004-aka)
 
 
+## Screenshots
+
+
 ## Features
 
 - *Seamless LeetCode Integration*: Log in directly to your LeetCode profile through Mini-Leet and access your progress effortlessly.  
@@ -22,41 +25,41 @@ The extension also features Google Sign-In integration, allowing users to log in
 - *Spaced Repetition Review Boards*: Leverage scientifically proven techniques to maximize retention and recall. Mini-Leet schedules flagged problems for review at optimal intervals, keeping your problem-solving skills sharp.  
 - *Robust Data Management*: Powered by MongoDB, your data is securely stored and efficiently managed for optimal performance.  
 
-## Installation
+## How to run?
 
-1. *Clone the Repository*:
+1. Clone the Repository:
    bash
    git clone https://github.com/biga-codes/Mini-Leet.git
    cd Mini-Leet
    
-2. *Install Dependencies*:
+2. Install Dependencies:
    bash
    npm install
    
-3. *Configure Environment Variables*:
+3. Configure Environment Variables:
    - Create a .env file in the root directory.
    - Add your MongoDB connection string:
      
      MONGODB_URI=your_mongodb_connection_string
      
-4. *Start the Application*:
+4. Start the Application:
    bash
    npm start
    
-5. *Access Mini-Leet*:
+5. Access Mini-Leet:
    - Open your browser and navigate to http://localhost:3000 to start using Mini-Leet.
 
 ## Usage
 
-1. *Log In*:
+1. Log In:
    - Click on the "Log in with LeetCode" button to connect your account.  
-2. *Dashboard*:
+2. Dashboard:
    - View your overall progress, including completed and pending problems.  
-3. *Mark for Revision*:
+3. Mark for Revision:
    - After attempting a problem, mark it for revision if needed.  
-4. *Spaced Repetition Review Boards*:
+4. Spaced Repetition Review Boards:
    - Access the "Revisions" section to see problems scheduled for review. Mini-Leet optimizes review timing to maximize learning and retention.  
-5. *Revisit Marked Problems*:
+5. Revisit Marked Problems:
    - Use direct links to revisit flagged questions on LeetCode.  
 
 ## Project Structure
@@ -66,16 +69,6 @@ The extension also features Google Sign-In integration, allowing users to log in
 - **server.js**: Backend server handling API requests and database interactions.  
 - **styles.css**: Main stylesheet for consistent styling across the app.  
 
-## Contributing
-
-We welcome contributions to enhance Mini-Leet! To get started:
-
-1. *Fork the Repository*: Click on the "Fork" button at the top right of this page.  
-2. *Create a New Branch*: Use git checkout -b feature-branch-name.  
-3. *Make Your Changes*: Implement your feature or fix.  
-4. *Commit Your Changes*: Use git commit -m 'Description of your changes'.  
-5. *Push to Your Branch*: Use git push origin feature-branch-name.  
-6. *Submit a Pull Request*: Navigate to the original repository and click on "New Pull Request".  
 
 ## License
 
