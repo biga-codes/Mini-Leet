@@ -7,6 +7,21 @@ The LeetCode Revision Chrome extension is designed to help users improve their p
 The extension also features Google Sign-In integration, allowing users to log in with their Google account for a personalized experience. Once signed in, the extension fetches and displays the user's LeetCode profile data, making it easy to track progress and set new goals. With a clean, simple interface, the extension offers an intuitive way to stay motivated, challenge yourself, and track your progress in solving coding problems on LeetCode.
 
 
+## **Tech Stack**
+
+- **Frontend:**
+  - HTML, CSS, JavaScript
+  - Google Sign-In Integration
+
+- **Backend (via Chrome APIs):**
+  - Chrome Extensions APIs (Storage, Runtime, Identity)
+  - Google OAuth 2.0
+
+- **APIs:**
+  - LeetCode GraphQL API (for fetching daily problems and user stats)
+  - Google OAuth API (for user authentication)
+
+
 ## Team members
 
 - [@BhadraR](https://www.github.com/Bhadra2005)
@@ -26,6 +41,7 @@ The extension also features Google Sign-In integration, allowing users to log in
 
 The LeetCode Revision Chrome Extension is designed to help you practice LeetCode problems regularly and efficiently. The extension pulls random LeetCode problems, manages a revision queue, and helps you clear problems once you've mastered them. The extension uses MongoDB to persist the revision queue and user progress.
 
+
 ## Features
 
 - Seamless LeetCode Integration: Log in directly to your LeetCode profile through Mini-Leet and access your progress effortlessly.  
@@ -33,6 +49,7 @@ The LeetCode Revision Chrome Extension is designed to help you practice LeetCode
 - Repetitive Revision: Flag challenging questions for revision and access them easily with direct links, ensuring continuous improvement.  
 - Spaced Repetition Review Boards: Leverage scientifically proven techniques to maximize retention and recall. Mini-Leet schedules flagged problems for review at optimal intervals, keeping your problem-solving skills sharp.  
 - Robust Data Management: Powered by MongoDB, your data is securely stored and efficiently managed for optimal performance.  
+
 
 ## How to run?
 
@@ -58,6 +75,7 @@ The LeetCode Revision Chrome Extension is designed to help you practice LeetCode
 5. Access Mini-Leet:
    - Open your browser and navigate to http://localhost:3000 to start using Mini-Leet.
 
+
 ## Usage
 
 1. Log In:
@@ -71,6 +89,7 @@ The LeetCode Revision Chrome Extension is designed to help you practice LeetCode
 5. Revisit Marked Problems:
    - Use direct links to revisit flagged questions on LeetCode.  
 
+
 ## Project Structure
 
 - **authent.html & authent.js**: Handle user authentication with LeetCode.  
@@ -82,7 +101,6 @@ The LeetCode Revision Chrome Extension is designed to help you practice LeetCode
 click on thumbnail to watch the video.
 
 [![Watch the video](https://img.youtube.com/vi/xjawPvPf2HQ/0.jpg)](https://youtu.be/xjawPvPf2HQ)
-
 
 
 ## License
