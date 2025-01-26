@@ -15,7 +15,7 @@ body {
 .container {
     padding: 20px;
     box-sizing: border-box;
-    background: linear-gradient(to bottom right, #d0d8ff, #f3e6ff);
+    background: linear-gradient(to bottom right, #a8b6fb, #89aee1);
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     width: 100%;
@@ -32,6 +32,7 @@ header h1 {
     font-size: 24px;
     color: #000000;
     margin: 0;
+    margin-left: 3px;
 }
 
 header p {
