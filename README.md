@@ -1,6 +1,6 @@
-# Mini-Leet: Elevate Your LeetCode Experience
+# Mini-Leet: Leetcode Revisor and Tracker
 
-Welcome to *Mini-Leet*, your ultimate companion for mastering LeetCode challenges! Whether you're a coding novice or a seasoned developer, Mini-Leet is designed to streamline your problem-solving journey and keep you on track to achieve your goals.
+*Mini-Leet* is designed for individuals who struggle to stay consistent with their daily LeetCode challenges and coding practice. Whether you're a coding novice or a seasoned developer, Mini-Leet is designed to streamline your problem-solving journey and keep you on track to achieve your goals.
 
 The LeetCode Revision Chrome extension is designed to help users improve their problem-solving skills by providing random LeetCode problems on a daily basis. This tool encourages users to stay engaged with daily coding challenges, promoting continuous learning and growth. In addition to presenting daily problems, the extension displays valuable insights about the user's LeetCode progress, such as the total number of problems solved and how many problems have been solved by difficulty (easy, medium, and hard). 
 
