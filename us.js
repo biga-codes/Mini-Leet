@@ -4,15 +4,12 @@ document.getElementById("fetchStats").addEventListener("click", function() {
       alert("Please enter a username.");
       return;
     }
-  
-    // Send a message to the background script to fetch stats
+    
     chrome.runtime.sendMessage({ type: 'fetchStats', username });
   });
   
-  // Listen for messages from background script
   chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message.type === 'userStats') {
-      // Display user stats
       document.getElementById("easySolved").textContent = `Easy: ${message.easySolved}`;
       document.getElementById("mediumSolved").textContent = `Medium: ${message.mediumSolved}`;
       document.getElementById("hardSolved").textContent = `Hard: ${message.hardSolved}`;
@@ -20,7 +17,6 @@ document.getElementById("fetchStats").addEventListener("click", function() {
     }
   
     if (message.type === 'recentSubmission') {
-      // Display the most recent submission title and URL
       const recentTitle = message.title;
       const recentUrl = message.url;
       const recentProblemTitle = document.getElementById("recentProblemTitle");
