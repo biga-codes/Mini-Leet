@@ -24,7 +24,6 @@ The extension also features Google Sign-In integration, allowing users to log in
 
 ![Screenshot 2025-01-26 110416](https://github.com/user-attachments/assets/46240847-dbf4-4f66-a844-035a8f5e6047)
 
-![Screenshot 2025-01-26 110355](https://github.com/user-attachments/assets/c4c036f0-5693-4513-9202-981100ed9847)
 
 
 ## Features
