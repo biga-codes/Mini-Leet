@@ -79,6 +79,8 @@ The extension also features Google Sign-In integration, allowing users to log in
 - **server.js**: Backend server handling API requests and database interactions.  
 - **styles.css**: Main stylesheet for consistent styling across the app.  
 
+## Link to video Demonstration
+https://youtu.be/xjawPvPf2HQ
 
 ## License
 
