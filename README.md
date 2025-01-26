@@ -1,64 +1,78 @@
-# MiniLeet - Chrome Extension
+# Mini-Leet: Elevate Your LeetCode Experience
 
-## 📌 Project Overview
-MiniLeet is a lightweight Chrome extension that helps users stay consistent with their coding practice by displaying their LeetCode statistics and reminding them to solve problems daily. It fetches user stats directly from LeetCode and provides insights into problems solved by difficulty level. Additionally, it displays the most recently solved problem along with its URL.
+Welcome to *Mini-Leet*, your ultimate companion for mastering LeetCode challenges! Whether you're a coding novice or a seasoned developer, Mini-Leet is designed to streamline your problem-solving journey and keep you on track to achieve your goals.
 
-## ✨ Features
-- Fetches and displays **LeetCode user statistics** (Total solved, Easy, Medium, Hard).
-- Shows the **most recently solved problem** with a clickable link.
-- Allows users to **enter their LeetCode username** and fetch real-time stats.
-- **Daily reminder notifications** to encourage problem-solving consistency.
-- Simple and user-friendly **popup UI** for quick access.
+## Features
 
-## 🛠️ Implementation Details
-- **Frontend**: HTML, CSS, JavaScript
-- **Backend**: LeetCode GraphQL API for fetching user data
-- **Storage**: Chrome Storage API to remember user preferences
-- **Permissions**:
-  - `activeTab`: Required for interacting with the currently open tab.
-  - `storage`: Saves the user’s LeetCode username.
-  - `notifications`: Enables daily reminders.
-  
-## 🚀 How to Use
-1. Install the extension in Chrome (see installation steps below).
-2. Click on the **MiniLeet icon** in the Chrome toolbar.
-3. Enter your **LeetCode username** and click **Fetch Stats**.
-4. View your **solved problems count** categorized by difficulty.
-5. See your **most recent solved problem** and click the link to revisit it.
-6. Get a **daily notification reminder** at a set time to solve a problem.
+- *Seamless LeetCode Integration*: Log in directly to your LeetCode profile through Mini-Leet and access your progress effortlessly.  
+- *Personalized Progress Tracking*: Monitor your completed problems, see what's pending, and celebrate your milestones.  
+- *Repetitive Revision*: Flag challenging questions for revision and access them easily with direct links, ensuring continuous improvement.  
+- *Spaced Repetition Review Boards*: Leverage scientifically proven techniques to maximize retention and recall. Mini-Leet schedules flagged problems for review at optimal intervals, keeping your problem-solving skills sharp.  
+- *Robust Data Management*: Powered by MongoDB, your data is securely stored and efficiently managed for optimal performance.  
 
-## 🏗️ How to Run the Project
-### 1️⃣ Clone the Repository
-```sh
-git clone https://github.com/your-username/MiniLeet.git
-cd MiniLeet
-```
+## Installation
 
-### 2️⃣ Load the Extension in Chrome
-1. Open **Google Chrome**.
-2. Go to `chrome://extensions/`.
-3. Enable **Developer Mode** (toggle in the top right corner).
-4. Click **Load unpacked** and select the `MiniLeet` folder.
-5. The extension should now be visible in your browser toolbar.
+1. *Clone the Repository*:
+   bash
+   git clone https://github.com/biga-codes/Mini-Leet.git
+   cd Mini-Leet
+   
+2. *Install Dependencies*:
+   bash
+   npm install
+   
+3. *Configure Environment Variables*:
+   - Create a .env file in the root directory.
+   - Add your MongoDB connection string:
+     
+     MONGODB_URI=your_mongodb_connection_string
+     
+4. *Start the Application*:
+   bash
+   npm start
+   
+5. *Access Mini-Leet*:
+   - Open your browser and navigate to http://localhost:3000 to start using Mini-Leet.
 
-### 3️⃣ Test the Features
-- Click the extension icon and enter a valid **LeetCode username**.
-- Fetch your stats and view the latest solved problem.
-- Wait for the **daily reminder notification** to ensure it works.
+## Usage
 
-## 📌 Future Enhancements
-- Add a **streak tracker** to keep users motivated.
-- Support for **multiple users**.
-- Customizable **reminder times**.
+1. *Log In*:
+   - Click on the "Log in with LeetCode" button to connect your account.  
+2. *Dashboard*:
+   - View your overall progress, including completed and pending problems.  
+3. *Mark for Revision*:
+   - After attempting a problem, mark it for revision if needed.  
+4. *Spaced Repetition Review Boards*:
+   - Access the "Revisions" section to see problems scheduled for review. Mini-Leet optimizes review timing to maximize learning and retention.  
+5. *Revisit Marked Problems*:
+   - Use direct links to revisit flagged questions on LeetCode.  
+
+## Project Structure
+
+- **authent.html & authent.js**: Handle user authentication with LeetCode.  
+- **dashboard.html & dashboard.js**: Display user progress, review boards, and statistics.  
+- **server.js**: Backend server handling API requests and database interactions.  
+- **styles.css**: Main stylesheet for consistent styling across the app.  
+
+## Contributing
+
+We welcome contributions to enhance Mini-Leet! To get started:
+
+1. *Fork the Repository*: Click on the "Fork" button at the top right of this page.  
+2. *Create a New Branch*: Use git checkout -b feature-branch-name.  
+3. *Make Your Changes*: Implement your feature or fix.  
+4. *Commit Your Changes*: Use git commit -m 'Description of your changes'.  
+5. *Push to Your Branch*: Use git push origin feature-branch-name.  
+6. *Submit a Pull Request*: Navigate to the original repository and click on "New Pull Request".  
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+For questions or feedback, please open an issue on GitHub or reach out to the project maintainers.
 
 ---
 
-### 💡 Contributing
-If you’d like to contribute, feel free to fork the repo and submit a PR!
-
-### 📝 License
-This project is licensed under the **MIT License**.
-
----
-💻 Developed with ❤️ by **Full Stack Pancakes** 🍽️
-
+Master LeetCode with *Mini-Leet* and experience coding like never before. Conquer challenges, strengthen your problem-solving skills, and unlock your potential today!
