@@ -1,5 +1,11 @@
 const backendUrl = "http://localhost:3000";
 
+const problemDisplay = document.getElementById("problem-display");
+const randomProblemButton = document.getElementById("random-problem");
+const revisionQueueDiv = document.getElementById("revision-queue");
+const conceptClearedButton = document.getElementById("concept-cleared");
+
+// Function to fetch the next problem from the server
 document.getElementById("next-question").addEventListener("click", async () => {
     try {
         const response = await fetch(`${backendUrl}/next`);
@@ -9,31 +15,20 @@ document.getElementById("next-question").addEventListener("click", async () => {
         const problem = await response.json();
         if (problem.message) {
             alert(problem.message);
-            document.getElementById("problem-display").innerHTML = "";
+            problemDisplay.innerHTML = "";
         } else {
-            document.getElementById("problem-display").innerHTML = `
+            problemDisplay.innerHTML = `
                 <div id="problem-title">${problem.title}</div>
                 <a href="${problem.url}" target="_blank">Solve on LeetCode</a>
             `;
         }
     } catch (error) {
-        console.error('Error fetching the next question:', error);
-        alert('Failed to fetch the next question. Please try again later.');
+        console.error("Error fetching the next question:", error);
+        alert("Failed to fetch the next question. Please try again later.");
     }
 });
 
-const problemDisplay = document.getElementById("problem-display");
-const randomProblemButton = document.getElementById("random-problem");
-//const nextQuestionButton = document.getElementById("next-question");
-const revisionQueueDiv = document.getElementById("revision-queue");
-
-// Function to get a random problem
-function getRandomProblem(problems) {
-    const randomIndex = Math.floor(Math.random() * problems.length);
-    return problems[randomIndex];
-}
-
-// Add a problem to the revision queue
+// Function to add a problem to the revision queue
 function addToQueue(problem) {
     chrome.storage.sync.get(["revisionQueue"], (data) => {
         const queue = data.revisionQueue || [];
@@ -44,107 +39,61 @@ function addToQueue(problem) {
     });
 }
 
-// Render the revision queue
+// Function to render the revision queue
 function renderQueue() {
     chrome.storage.sync.get(["revisionQueue"], (data) => {
         const queue = data.revisionQueue || [];
         revisionQueueDiv.innerHTML = queue
             .map(
-                (problem) =>
-                    `<div>${problem.title} - <a href="${problem.url}" target="_blank">Link</a></div>`
+                (problem, index) =>
+                    `<div id="queue-item-${index}">
+                        ${problem.title} - <a href="${problem.url}" target="_blank">Link</a>
+                     </div>`
             )
             .join("");
     });
 }
 
-// Event listener for "Get Random Problem" button
+// Function to get a random problem and display it
 randomProblemButton.addEventListener("click", () => {
     const currentProblemTitle = document.querySelector("#problem-title")?.innerText;
     const currentProblemLink = document.querySelector("#problem-display a")?.href;
 
-    // Check if there is a problem currently displayed
     if (currentProblemTitle && currentProblemLink) {
         // If a problem is displayed, add it to the revision queue
         const problem = { title: currentProblemTitle, url: currentProblemLink };
         addToQueue(problem);
 
         // Clear the displayed problem after enqueueing
-        problemDisplay.innerHTML = `<div style="color: gray;">No problem is currently displayed.</div>`;
+        clearProblemDisplay();
+        alert("Problem added to the revision queue.");
     } else {
-      
         alert("No problem is currently displayed. Please display a problem first.");
     }
 });
 
-
-
-nextQuestionButton.addEventListener("click", () => {
-    fetch(chrome.runtime.getURL("problems.json"))
-        .then((response) => {
-            if (!response.ok) {
-                throw new Error("Failed to load problems.json");
-            }
-            return response.json();
-        })
-        .then((problems) => {
-           
-            chrome.storage.sync.get(["currentProblemIndex"], (data) => {
-                const currentIndex = data.currentProblemIndex || 0;
-
-         
-                const nextProblem = problems[currentIndex];
-                if (!nextProblem) {
-                    alert("No more problems available.");
-                    return;
-                }
-
-             
-                problemDisplay.innerHTML = `
-                    <div id="problem-title">${nextProblem.title}</div>
-                    <a href="${nextProblem.url}" target="_blank">Solve on LeetCode</a>
-                `;
-
-             
-                const newIndex = (currentIndex + 1) % problems.length;
-                chrome.storage.sync.set({ currentProblemIndex: newIndex });
-            });
-        })
-        .catch((error) => {
-            console.error("Error fetching the next question:", error);
-            alert("Failed to fetch the next question. Please try again later.");
-        });
-});
-
-// Initial render of the queue
-renderQueue();
-// Get the "Concept Cleared" button element
-const conceptClearedButton = document.getElementById("concept-cleared");
-
-// Function to remove the first problem in the queue
+// Function to dequeue the first problem (for "Concept Cleared")
 function dequeueFirstProblem() {
-    // Access the revision queue from storage
     chrome.storage.sync.get(["revisionQueue"], (data) => {
         let queue = data.revisionQueue || [];
 
-        // Check if the queue is empty
         if (queue.length === 0) {
             alert("The revision queue is empty.");
             return;
         }
 
-        // Dequeue the first problem (FIFO order)
+        // Remove the first problem from the queue
         const removedProblem = queue.shift();
 
-        // Update the storage with the new queue
+        // Update the queue and storage
         chrome.storage.sync.set({ revisionQueue: queue }, () => {
-            renderQueue(); // Update the queue display
-            displayNextProblem(queue); // Display the next problem, if any
             alert(`Removed: ${removedProblem.title}`);
+            renderQueue(); // Update the UI
         });
     });
 }
 
-// Function to display the next problem from the queue
+// Function to display the first problem in the queue
 function displayNextProblem(queue) {
     if (queue.length > 0) {
         const nextProblem = queue[0];
@@ -153,7 +102,7 @@ function displayNextProblem(queue) {
             <a href="${nextProblem.url}" target="_blank">Solve on LeetCode</a>
         `;
     } else {
-        clearProblemDisplay(); // Clear display if no problems are left
+        clearProblemDisplay();
     }
 }
 
@@ -164,5 +113,8 @@ function clearProblemDisplay() {
 
 // Event listener for "Concept Cleared" button
 conceptClearedButton.addEventListener("click", () => {
-    dequeueFirstProblem(); // Dequeue the first problem and update the display
+    dequeueFirstProblem();
 });
+
+// Initial render of the revision queue
+renderQueue();
