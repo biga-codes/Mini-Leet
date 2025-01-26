@@ -16,6 +16,8 @@ The extension also features Google Sign-In integration, allowing users to log in
 - **Backend (via Chrome APIs):**
   - Chrome Extensions APIs (Storage, Runtime, Identity)
   - Google OAuth 2.0
+  - MongoDB
+  - Node.js
 
 - **APIs:**
   - LeetCode GraphQL API (for fetching daily problems and user stats)
