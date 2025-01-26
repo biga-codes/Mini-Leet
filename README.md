@@ -7,6 +7,13 @@ The LeetCode Revision Chrome extension is designed to help users improve their p
 The extension also features Google Sign-In integration, allowing users to log in with their Google account for a personalized experience. Once signed in, the extension fetches and displays the user's LeetCode profile data, making it easy to track progress and set new goals. With a clean, simple interface, the extension offers an intuitive way to stay motivated, challenge yourself, and track your progress in solving coding problems on LeetCode.
 
 
+## Team members
+
+- [@BhadraR](https://www.github.com/Bhadra2005)
+- [@GopikaJ](https://github.com/biga-codes)
+- [@JeanRoger](https://github.com/Jean2004-aka)
+
+
 ## Features
 
 - *Seamless LeetCode Integration*: Log in directly to your LeetCode profile through Mini-Leet and access your progress effortlessly.  
