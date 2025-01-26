@@ -24,7 +24,7 @@ The extension also features Google Sign-In integration, allowing users to log in
 
 ![Screenshot 2025-01-26 110416](https://github.com/user-attachments/assets/46240847-dbf4-4f66-a844-035a8f5e6047)
 
-
+The LeetCode Revision Chrome Extension is designed to help you practice LeetCode problems regularly and efficiently. The extension pulls random LeetCode problems, manages a revision queue, and helps you clear problems once you've mastered them. The extension uses MongoDB to persist the revision queue and user progress.
 
 ## Features
 
