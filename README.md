@@ -16,12 +16,13 @@ The extension also features Google Sign-In integration, allowing users to log in
 
 ## Screenshots
 
+![Screenshot 2025-01-26 110335](https://github.com/user-attachments/assets/f39fb9e7-9982-4a75-8418-e1af91b79436)
 ![Screenshot 2025-01-26 110457](https://github.com/user-attachments/assets/267f039c-bf28-415a-b085-4535fb2aa1df)
 ![Screenshot 2025-01-26 110439](https://github.com/user-attachments/assets/a9546254-6a64-4241-b8ba-e5f8f84027e0)
 ![Screenshot 2025-01-26 110416](https://github.com/user-attachments/assets/46240847-dbf4-4f66-a844-035a8f5e6047)
 ![Screenshot 2025-01-26 110355](https://github.com/user-attachments/assets/c4c036f0-5693-4513-9202-981100ed9847)
 ![Screenshot 2025-01-26 110346](https://github.com/user-attachments/assets/92970ec8-b6b0-470e-b7a9-5c2ed0fbcf77)
-![Screenshot 2025-01-26 110335](https://github.com/user-attachments/assets/f39fb9e7-9982-4a75-8418-e1af91b79436)
+
 
 
 
