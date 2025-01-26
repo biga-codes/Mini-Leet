@@ -1,81 +1,128 @@
 const express = require("express");
-const redis = require("redis");
+const { MongoClient } = require("mongodb");
 const cors = require("cors");
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Connect to Redis
-const client = redis.createClient();
-client.connect().catch(console.error); 
-client.on("connect", () => console.log("Connected to Redis"));
-client.on("error", (err) => console.error("Redis error:", err));
+// MongoDB connection URI
+const uri = "mongodb+srv://gopikajitesh:PASSWORD@leetq.5m2fq.mongodb.net/?retryWrites=true&w=majority&appName=LEETQ"; // Replace with your MongoDB connection details
 
-// Predefined list of LeetCode problems
+// Create a new MongoClient
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+
+async function connectToMongoDB() {
+    try {
+        await client.connect();
+        console.log("Connected to MongoDB");
+    } catch (err) {
+        console.error("MongoDB connection error:", err);
+    }
+}
+
+connectToMongoDB();
+
+// Predefined list of LeetCode problems (for fallback)
 const problems = [
     { title: "Two Sum", url: "https://leetcode.com/problems/two-sum/" },
     { title: "Reverse Linked List", url: "https://leetcode.com/problems/reverse-linked-list/" },
     { title: "Binary Search", url: "https://leetcode.com/problems/binary-search/" },
+    { title: "Two Sum", url: "https://leetcode.com/problems/two-sum/" },
+    { title: "Best Time to Buy and Sell Stock", url: "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/" },
+    { title: "Maximum Subarray", url: "https://leetcode.com/problems/maximum-subarray/" },
+    { title: "Contains Duplicate", url: "https://leetcode.com/problems/contains-duplicate/" },
+    { title: "Product of Array Except Self", url: "https://leetcode.com/problems/product-of-array-except-self/" },
+    { title: "Binary Search", url: "https://leetcode.com/problems/binary-search/" },
+    { title: "Search in Rotated Sorted Array", url: "https://leetcode.com/problems/search-in-rotated-sorted-array/" },
+    { title: "Find Minimum in Rotated Sorted Array", url: "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/" },
+    { title: "Search a 2D Matrix", url: "https://leetcode.com/problems/search-a-2d-matrix/" },
+    { title: "Median of Two Sorted Arrays", url: "https://leetcode.com/problems/median-of-two-sorted-arrays/" },
+  { title: "Reverse Linked List", url: "https://leetcode.com/problems/reverse-linked-list/" },
+  { title: "Merge Two Sorted Lists", url: "https://leetcode.com/problems/merge-two-sorted-lists/" },
+  { title: "Linked List Cycle", url: "https://leetcode.com/problems/linked-list-cycle/" },
+  { title: "Remove Nth Node From End of List", url: "https://leetcode.com/problems/remove-nth-node-from-end-of-list/" },
+  { title: "Reorder List", url: "https://leetcode.com/problems/reorder-list/" },
+  { title: "Valid Parentheses", url: "https://leetcode.com/problems/valid-parentheses/" },
+  { title: "Min Stack", url: "https://leetcode.com/problems/min-stack/" },
+  { title: "Evaluate Reverse Polish Notation", url: "https://leetcode.com/problems/evaluate-reverse-polish-notation/" },
+  { title: "Daily Temperatures", url: "https://leetcode.com/problems/daily-temperatures/" },
+  { title: "Car Fleet", url: "https://leetcode.com/problems/car-fleet/" },
+  { title: "Implement Queue using Stacks", url: "https://leetcode.com/problems/implement-queue-using-stacks/" },
+  { title: "Number of Recent Calls", url: "https://leetcode.com/problems/number-of-recent-calls/" },
+  { title: "Design Circular Queue", url: "https://leetcode.com/problems/design-circular-queue/" },
+  { title: "Sliding Window Maximum", url: "https://leetcode.com/problems/sliding-window-maximum/" },
+  { title: "Rotting Oranges", url: "https://leetcode.com/problems/rotting-oranges/" },
+  { title: "Valid Anagram", url: "https://leetcode.com/problems/valid-anagram/" },
+  { title: "Group Anagrams", url: "https://leetcode.com/problems/group-anagrams/" },
+  { title: "Top K Frequent Elements", url: "https://leetcode.com/problems/top-k-frequent-elements/" },
+  { title: "Subarray Sum Equals K", url: "https://leetcode.com/problems/subarray-sum-equals-k/" },
+  { title: "Word Pattern", url: "https://leetcode.com/problems/word-pattern/" },
+  { title: "Maximum Depth of Binary Tree", url: "https://leetcode.com/problems/maximum-depth-of-binary-tree/" },
+  { title: "Same Tree", url: "https://leetcode.com/problems/same-tree/" },
+  { title: "Invert Binary Tree", url: "https://leetcode.com/problems/invert-binary-tree/" },
+  { title: "Binary Tree Level Order Traversal", url: "https://leetcode.com/problems/binary-tree-level-order-traversal/" },
+  { title: "Validate Binary Search Tree", url: "https://leetcode.com/problems/validate-binary-search-tree/" },
+  { title: "Number of Islands", url: "https://leetcode.com/problems/number-of-islands/" },
+  { title: "Course Schedule", url: "https://leetcode.com/problems/course-schedule/" },
+  { title: "Pacific Atlantic Water Flow", url: "https://leetcode.com/problems/pacific-atlantic-water-flow/" },
+  { title: "Clone Graph", url: "https://leetcode.com/problems/clone-graph/" },
+  { title: "Network Delay Time", url: "https://leetcode.com/problems/network-delay-time/" },
+  { title: "Climbing Stairs", url: "https://leetcode.com/problems/climbing-stairs/" },
+  { title: "House Robber", url: "https://leetcode.com/problems/house-robber/" },
+  { title: "Longest Increasing Subsequence", url: "https://leetcode.com/problems/longest-increasing-subsequence/" },
+  { title: "Coin Change", url: "https://leetcode.com/problems/coin-change/" },
+  { title: "Maximum Product Subarray", url: "https://leetcode.com/problems/maximum-product-subarray/" },
+  { title: "Subsets", url: "https://leetcode.com/problems/subsets/" },
+  { title: "Combination Sum", url: "https://leetcode.com/problems/combination-sum/" },
+  { title: "Permutations", url: "https://leetcode.com/problems/permutations/" },
+  { title: "Word Search", url: "https://leetcode.com/problems/word-search/" },
+  { title: "Sudoku Solver", url: "https://leetcode.com/problems/sudoku-solver/" },
+  { title: "Longest Substring Without Repeating Characters", url: "https://leetcode.com/problems/longest-substring-without-repeating-characters/" },
+  { title: "Longest Palindromic Substring", url: "https://leetcode.com/problems/longest-palindromic-substring/" }
 ];
 
-// Add a problem to the queue
-app.post("/add", async (req, res) => {
-    const { title, url } = req.body;
-    await client.lPush("revisionQueue", JSON.stringify({ title, url }));
-    res.send("Problem added to the queue.");
+// Endpoint to get the next problem
+app.get("/next", (req, res) => {
+    const randomIndex = Math.floor(Math.random() * problems.length);
+    const problem = problems[randomIndex];
+    res.json(problem);
 });
 
-// Get a random problem from the queue
+// Endpoint to get a random problem from the database
 app.get("/random", async (req, res) => {
-    const length = await client.lLen("revisionQueue");
-    if (length === 0) return res.send({ message: "Queue is empty." });
+    try {
+        const collection = client.db("leetcode").collection("problems");
+        const count = await collection.countDocuments();
+        if (count === 0) return res.send({ message: "No problems found." });
 
-    const randomIndex = Math.floor(Math.random() * length);
-    const problem = JSON.parse(await client.lIndex("revisionQueue", randomIndex));
-    res.send(problem);
+        const randomIndex = Math.floor(Math.random() * count);
+        const problem = await collection.find().skip(randomIndex).limit(1).next();
+        res.send(problem);
+    } catch (error) {
+        console.error("Error fetching random problem:", error);
+        res.status(500).send("Internal Server Error");
+    }
 });
 
-// Remove a problem from the queue
+// Endpoint to remove a problem from the database
 app.post("/remove", async (req, res) => {
-    const { title } = req.body;
-    const queue = await client.lRange("revisionQueue", 0, -1);
-    const updatedQueue = queue.filter((item) => JSON.parse(item).title !== title);
-    await client.del("revisionQueue"); // Clear the queue
-    for (const item of updatedQueue) {
-        await client.lPush("revisionQueue", item); // Rebuild the queue
-    }
-    res.send("Problem removed from the queue.");
-});
-
-// Fetch a predefined random problem
-app.get("/problem", (req, res) => {
-    const randomProblem = problems[Math.floor(Math.random() * problems.length)];
-    res.send(randomProblem);
-});
-
-// Fetch the next question (FIFO)
-app.get("/next", async (req, res) => {
-    const problem = await client.lPop("revisionQueue");
-    if (!problem) {
-        res.send({ message: "Queue is empty." });
-    } else {
-        res.send(JSON.parse(problem));
+    try {
+        const { title } = req.body;
+        const collection = client.db("leetcode").collection("problems");
+        await collection.deleteOne({ title });
+        res.send({ message: "Problem removed from the database." });
+    } catch (error) {
+        console.error("Error removing problem from database:", error);
+        res.status(500).send("Internal Server Error");
     }
 });
 
-// Remove a specific question when "Concept Cleared"
-app.post("/concept-cleared", async (req, res) => {
-    const { url } = req.body;
-    const queue = await client.lRange("revisionQueue", 0, -1);
-    const updatedQueue = queue.filter((item) => JSON.parse(item).url !== url);
-    await client.del("revisionQueue"); // Clear the queue
-    for (const item of updatedQueue) {
-        await client.lPush("revisionQueue", item); // Rebuild the queue
-    }
-    res.send({ message: "Problem removed from the queue." });
+// Start the server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });
-
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
