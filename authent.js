@@ -14,22 +14,20 @@ function authenticate() {
 
 document.getElementById("googleSignInButton").addEventListener("click", googleSignIn);
 
-function googleSignIn() {
-  const clientId = "457305893962-guc66si5nrnhtbk1ifqn9l2u6fud28f8.apps.googleusercontent.com"; 
-  const redirectUri = chrome.identity.getRedirectURL(); // extension redirect
-  const scope = "openid email profile";
+document.getElementById("googleSignInButton").addEventListener("click", googleSignIn);
 
-  const authUrl = `https://accounts.google.com/o/oauth2/auth?client_id=${encodeURIComponent(clientId)}&response_type=token&redirect_uri=${encodeURIComponent(redirectUri)}&scope=${encodeURIComponent(scope)}`;
+function googleSignIn() {
+  const redirectUri = chrome.identity.getRedirectURL();
+  console.log("Redirect URI:", redirectUri);
 
   chrome.identity.launchWebAuthFlow(
     {
-      url: authUrl,
+      url: `https://accounts.google.com/o/oauth2/auth?client_id=457305893962-1l57ilbcaoamivo4dlpksheb8kemhfnb.apps.googleusercontent.com&response_type=token&redirect_uri=${encodeURIComponent(redirectUri)}&scope=openid%20email%20profile`,
       interactive: true
     },
     function (redirectUrl) {
       if (chrome.runtime.lastError) {
-        console.error(chrome.runtime.lastError);
-        alert("Google Sign-In failed.");
+        console.error("Auth error:", chrome.runtime.lastError);
         return;
       }
 
@@ -38,7 +36,6 @@ function googleSignIn() {
         return;
       }
 
-      // Ensure fragment exists before splitting
       const fragment = redirectUrl.split("#")[1];
       if (!fragment) {
         console.error("No access token found in redirect URL:", redirectUrl);
@@ -52,19 +49,14 @@ function googleSignIn() {
         fetch("https://www.googleapis.com/oauth2/v2/userinfo", {
           headers: { Authorization: `Bearer ${accessToken}` }
         })
-          .then(response => response.json())
+          .then(res => res.json())
           .then(user => {
             console.log("Google User:", user);
             alert(`Welcome, ${user.name}!`);
             window.location.href = "dashboard.html";
           })
           .catch(err => console.error("Failed to fetch user info:", err));
-      } else {
-        console.error("Access token missing in response.");
       }
     }
-  ); // ✅ closed correctly here
+  );
 }
-
-
-
