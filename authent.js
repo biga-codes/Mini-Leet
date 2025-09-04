@@ -1,4 +1,3 @@
-// Normal username/password login
 document.getElementById("loginButton").addEventListener("click", authenticate);
 
 function authenticate() {
@@ -16,31 +15,25 @@ function authenticate() {
 document.getElementById("googleSignInButton").addEventListener("click", googleSignIn);
 
 function googleSignIn() {
-    const clientId = "457305893962-21tdt42o7s4hagdtpmqfs929d79r7h5e.apps.googleusercontent.com"; 
-    const redirectUri = chrome.identity.getRedirectURL();
+    const clientId = "457305893962-s1nalddrntubfr9rmc289n4fg7j73iu6.apps.googleusercontent.com"; 
+    const redirectUri = chrome.identity.getRedirectURL(); // extension redirect
     const scope = "openid email profile";
-    const authUrl = `https://accounts.google.com/o/oauth2/auth
-        ?client_id=${encodeURIComponent(clientId)}
-        &response_type=token
-        &redirect_uri=${encodeURIComponent(redirectUri)}
-        &scope=${encodeURIComponent(scope)}`;
+
+    const authUrl = `https://accounts.google.com/o/oauth2/auth?client_id=${encodeURIComponent(clientId)}&response_type=token&redirect_uri=${encodeURIComponent(redirectUri)}&scope=${encodeURIComponent(scope)}`;
 
     chrome.identity.launchWebAuthFlow(
-        {
-            url: authUrl,
-            interactive: true
-        },
+        { url: authUrl, interactive: true },
         function (redirectUrl) {
             if (chrome.runtime.lastError) {
                 console.error(chrome.runtime.lastError);
                 alert("Google Sign-In failed.");
                 return;
             }
+
             const params = new URLSearchParams(redirectUrl.split("#")[1]);
             const accessToken = params.get("access_token");
 
             if (accessToken) {
-            
                 fetch("https://www.googleapis.com/oauth2/v2/userinfo", {
                     headers: { Authorization: `Bearer ${accessToken}` }
                 })
@@ -48,13 +41,16 @@ function googleSignIn() {
                 .then(user => {
                     console.log("Google User:", user);
                     alert(`Welcome, ${user.name}!`);
-                    window.location.href = "dashboard.html"; 
+                    window.location.href = "dashboard.html";
                 })
                 .catch(err => console.error("Failed to fetch user info:", err));
             }
         }
     );
 }
+
+}
+
 
 
 
