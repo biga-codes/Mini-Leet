@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html style="border-radius:10px">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: #000;
+            position: relative;
+            height: 100vh;
+        }
+
+        .login-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 6px 12px;
+            background-color: #5c7cfa; 
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .login-button:hover {
+            background-color: #4263eb; 
+            transform: translateY(-2px); 
+        }
+
+        .container {
+            margin: 0 auto;
+            padding: 20px;
+            max-width: 800px;
+        }
+
+        header {
+            margin: 60px 0 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #0a1f44; 
+        }
+
+        header p {
+            margin: 5px 0 0 0;
+            font-size: 14px;
+            color: #0c244e; 
+        }
+
+        h2 {
+            font-size: 20px;
+            color: #0a1f44;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin: 5px 0 0 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    
+    <a href="userStats.html" class="login-button" id="login-button">User Stats</a>
+
+    <div class="container">
+        <header>
+            <h1>LeetCode Revision</h1>
+            <p>Practice and revise your coding skills.</p>
+        </header>
+
+        <section class="problem-section">
+            <h2>Current Problem</h2> 
+            <div id="problem-display" class="problem-card">
+                <p>No problem selected yet.</p>
+            </div>
+            <div class="button-group">
+                <button id="random-problem" class="btn primary">Get Random Problem</button>
+                <button id="next-question" class="btn secondary">Next Question</button>
+                <button id="concept-cleared" class="btn success">Concept Cleared</button>
+            </div>
+        </section>
+
+        <section class="queue-section">
+            <h2>Revision Queue</h2> 
+            <div id="revision-queue" class="queue-list">
+                <p>Queue is empty.</p>
+            </div>
+        </section>
+
+        <footer>
+            <p>LeetCode Revision © 2025</p>
+        </footer>
+    </div>
+    <script src="popup.js"></script>
+    <script src="userstats.js"></script>
+</body>
+</html>

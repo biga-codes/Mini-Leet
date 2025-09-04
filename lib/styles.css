@@ -1,0 +1,149 @@
+/* General Styles */
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #74d4d4;
+    background-color: #000000;
+    width: 350px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    padding: 20px;
+    box-sizing: border-box;
+    background: linear-gradient(to bottom right, #a8b6fb, #89aee1);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 350px;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+header h1 {
+    font-size: 24px;
+    color: #000000;
+    margin: 0;
+    margin-left: 3px;
+}
+
+header p {
+    font-size: 14px;
+    color: #000000;
+    margin-top: 5px;
+}
+
+/* Problem Section */
+.problem-section h2,
+.queue-section h2 {
+    font-size: 18px;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.problem-card {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+}
+
+.problem-card a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.problem-card a:hover {
+    text-decoration: underline;
+}
+
+/* Buttons */
+.button-group {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.btn {
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease
+}
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.btn.primary {
+    background: #5c7cfa;
+    color: #fff;
+}
+
+.btn.primary:hover {
+    background: #270b74;
+}
+
+.btn.secondary {
+    background: #5c7cfa;
+    color: #fff;
+}
+
+.btn.secondary:hover {
+    background:#270b74 ;
+}
+
+.btn.success {
+    background: #5c7cfa;
+    color: #fff;
+}
+
+.btn.success:hover {
+    background: #270b74;
+}
+
+/* Queue Section */
+.queue-list {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    font-size: 14px;
+    color: #666;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.queue-list p {
+    text-align: center;
+    color: #999;
+}
+
+/* Footer */
+footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 12px;
+    color: #aaa;
+}
