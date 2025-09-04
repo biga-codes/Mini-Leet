@@ -16,7 +16,7 @@ function authenticate() {
 document.getElementById("googleSignInButton").addEventListener("click", googleSignIn);
 
 function googleSignIn() {
-    const clientId = "457305893962-jm894hugvgld8fqg3gpi3v2vhrhp0opr.apps.googleusercontent.com"; 
+    const clientId = "457305893962-21tdt42o7s4hagdtpmqfs929d79r7h5e.apps.googleusercontent.com"; 
     const redirectUri = chrome.identity.getRedirectURL();
     const scope = "openid email profile";
     const authUrl = `https://accounts.google.com/o/oauth2/auth
@@ -55,5 +55,6 @@ function googleSignIn() {
         }
     );
 }
+
 
 
