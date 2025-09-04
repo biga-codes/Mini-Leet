@@ -14,16 +14,14 @@ function authenticate() {
 }
 
 // Google Sign-In login
-document.getElementById("googleSignInButton").addEventListener("click", googleSignIn);
-
-function googleSignIn() {
-    chrome.identity.getProfileUserInfo({ accountStatus: 'ANY' }, user_info => {
+document.getElementById("googleSignInButton").addEventListener("click", () => {
+    chrome.runtime.sendMessage({ message: "googleSignIn" }, user_info => {
         if (user_info.email) {
-            console.log("Google User Email:", user_info.email);
             alert(`Welcome, ${user_info.email}!`);
             window.location.href = "dashboard.html";
         } else {
-            console.error("User not signed in or permission denied.");
+            console.error("User not signed in.");
         }
     });
-}
+});
+
