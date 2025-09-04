@@ -12,11 +12,13 @@
     }
 ],
     "oauth2": {
-    "client_id": "457305893962-1l57ilbcaoamivo4dlpksheb8kemhfnb.apps.googleusercontent.com",
+    "client_id": "828974922958-4ls5q2puoi03tdffbc6bmqgd3is768j6.apps.googleusercontent.com",
     "scopes": [
       "openid",
       "email",
-      "profile"
+      "profile",
+        "https://www.googleapis.com/auth/userinfo.profile",
+    "https://www.googleapis.com/auth/userinfo.email"
     ]
   },
     "action": {
@@ -29,6 +31,7 @@
 }
 
  
+
 
 
 
