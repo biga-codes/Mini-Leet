@@ -22,35 +22,45 @@ function googleSignIn() {
     const authUrl = `https://accounts.google.com/o/oauth2/auth?client_id=${encodeURIComponent(clientId)}&response_type=token&redirect_uri=${encodeURIComponent(redirectUri)}&scope=${encodeURIComponent(scope)}`;
 
     chrome.identity.launchWebAuthFlow(
-        { url: authUrl, interactive: true },
-        function (redirectUrl) {
-            if (chrome.runtime.lastError) {
-                console.error(chrome.runtime.lastError);
-                alert("Google Sign-In failed.");
-                return;
-            }
+  {
+    url: authUrl,
+    interactive: true
+  },
+  function (redirectUrl) {
+    if (chrome.runtime.lastError) {
+      console.error(chrome.runtime.lastError);
+      alert("Google Sign-In failed.");
+      return;
+    }
 
-            const params = new URLSearchParams(redirectUrl.split("#")[1]);
-            const accessToken = params.get("access_token");
+    if (!redirectUrl) {
+      console.error("No redirect URL returned.");
+      return;
+    }
 
-            if (accessToken) {
-                fetch("https://www.googleapis.com/oauth2/v2/userinfo", {
-                    headers: { Authorization: `Bearer ${accessToken}` }
-                })
-                .then(response => response.json())
-                .then(user => {
-                    console.log("Google User:", user);
-                    alert(`Welcome, ${user.name}!`);
-                    window.location.href = "dashboard.html";
-                })
-                .catch(err => console.error("Failed to fetch user info:", err));
-            }
-        }
-    );
-}
+    // Ensure fragment exists before splitting
+    const fragment = redirectUrl.split("#")[1];
+    if (!fragment) {
+      console.error("No access token found in redirect URL:", redirectUrl);
+      return;
+    }
 
-}
+    const params = new URLSearchParams(fragment);
+    const accessToken = params.get("access_token");
 
-
-
-
+    if (accessToken) {
+      fetch("https://www.googleapis.com/oauth2/v2/userinfo", {
+        headers: { Authorization: `Bearer ${accessToken}` }
+      })
+        .then(response => response.json())
+        .then(user => {
+          console.log("Google User:", user);
+          alert(`Welcome, ${user.name}!`);
+          window.location.href = "dashboard.html";
+        })
+        .catch(err => console.error("Failed to fetch user info:", err));
+    } else {
+      console.error("Access token missing in response.");
+    }
+  }
+);
