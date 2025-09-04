@@ -14,11 +14,11 @@ function authenticate() {
 
 document.getElementById("googleSignInButton").addEventListener("click", googleSignIn);
 
-document.getElementById("googleSignInButton").addEventListener("click", googleSignIn);
 
 function googleSignIn() {
+  console.log("googleSignIn function called!"); // Test if function runs
   const redirectUri = chrome.identity.getRedirectURL();
-  console.log("Redirect URI:", redirectUri);
+  console.log("Generated Redirect URI:", redirectUri);
 
   chrome.identity.launchWebAuthFlow(
     {
@@ -60,3 +60,4 @@ function googleSignIn() {
     }
   );
 }
+
