@@ -15,7 +15,7 @@ function authenticate() {
 document.getElementById("googleSignInButton").addEventListener("click", googleSignIn);
 
 function googleSignIn() {
-  const clientId = "457305893962-21tdt42o7s4hagdtpmqfs929d79r7h5e.apps.googleusercontent.com"; 
+  const clientId = "457305893962-1l57ilbcaoamivo4dlpksheb8kemhfnb.apps.googleusercontent.com"; 
   const redirectUri = chrome.identity.getRedirectURL(); // extension redirect
   const scope = "openid email profile";
 
@@ -65,4 +65,5 @@ function googleSignIn() {
     }
   ); // ✅ closed correctly here
 }
+
 
