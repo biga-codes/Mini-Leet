@@ -3,12 +3,14 @@ FROM node:18
 WORKDIR /app
 
 COPY package*.json ./
-RUN npm install \
+RUN npm install 
   #  && npm install -g serve@latest  - static file for frontend frmwrk
   #  && npm run build \ - not necessary cus no frontend framework
   #  && rm -fr node_modules
-COPY . .
 
+COPY . .
+# Remove the extension folder from the image (optional, if you can't .dockerignore it)
+RUN rm -rf extension
 EXPOSE 3000
 #command is here
 CMD ["node", "server.js"]
