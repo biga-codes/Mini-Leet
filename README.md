@@ -74,27 +74,6 @@ By revisiting the same problem multiple times, spaced repetition helps reinforce
 - Robust Data Management: Powered by MongoDB, your data is securely stored and efficiently managed for optimal performance.  
 
 
-## How to run?
-
-1. Clone the Repository:
-   bash
-   git clone https://github.com/biga-codes/Mini-Leet.git
-   cd Mini-Leet
-   
-2. Install Dependencies:
-   npm install mongodb
-   node server.js
-   
-4. Configure Environment Variables:
-   - Add your MongoDB connection string:
-     
-     MONGODB_URI=your_mongodb_connection_string
-     
-5. Start the Application:
-  go to chrome for developers and test the application locally to access mini-leet.
-
-
-
 ## Usage
 
 1. Log In:
