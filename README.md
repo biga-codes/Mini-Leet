@@ -18,6 +18,7 @@ The extension also features Google Sign-In integration, allowing users to log in
   - Google OAuth 2.0
   - MongoDB
   - Node.js
+  - Express JS
 
 - **APIs:**
   - LeetCode GraphQL API (for fetching daily problems and user stats)
